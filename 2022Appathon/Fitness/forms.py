@@ -9,4 +9,4 @@ class CreateClassroom(forms.Form):
 
 
 class SetupForm(forms.Form):
-    Weight = forms.
+    Weight = forms.CharField(label="Subject", max_length=200)

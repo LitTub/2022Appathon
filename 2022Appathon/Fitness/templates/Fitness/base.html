@@ -30,7 +30,7 @@
     color:#f1f1f1;
   }
   .main {
-    margin-left:160px;
+    margin-left:250px;
     padding:0px 10px;
   }
     body {
@@ -61,7 +61,10 @@ button {
   all: unset;
   cursor: pointer;
   width: 44px;
-  height: 44px;
+  height: 35px;
+  position:relative;
+  top:5px;
+
 }
 
 svg {
@@ -70,6 +73,10 @@ svg {
   width: 24px;
   height: 24px;
   padding: 10px;
+}
+
+.btnwrap {
+  text-align: left;
 }
 </style>
 
@@ -94,8 +101,11 @@ crossorigin="anonymous">
     <hr class="mt-0 mb-4">
     
     <div id="content", name="content">
+      {% include 'Fitness/messages.html' %}
         {% block content %}
         {% endblock %}
+  
+      
     </div>
     </div>  
     </div>

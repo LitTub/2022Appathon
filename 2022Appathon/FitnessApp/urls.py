@@ -20,6 +20,8 @@ from signup import views as v
 urlpatterns = [
     path('', include("Fitness.urls")),
     path('signup/', v.signup, name="signup"),
-    path('admin/', admin.site.urls)
+    path('login/', v.login_request, name="login"),
+    path('admin/', admin.site.urls),
+
 
 ]
