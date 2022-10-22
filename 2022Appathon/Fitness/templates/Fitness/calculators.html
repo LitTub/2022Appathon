@@ -1,0 +1,21 @@
+{% extends "Fitness/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Calculators
+{% endblock %}
+
+
+{% block content %}
+{% include 'Fitness/navbar.html' %}
+<h1 class="mt-2"> 
+    Fitness App
+ </h1>
+ <hr class="mt-0 mb-4">
+<form method="POST" class="form-group">
+    {% csrf_token %}
+    {{form|crispy}}
+    <p class="btnwrap"><button type="submit" class="btn btn-success">Signup</button></p>
+</form>
+
+{% endblock %}
