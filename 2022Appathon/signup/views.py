@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth import login, authenticate
 from .forms import SignupForm
 from django.contrib import messages
@@ -15,7 +15,7 @@ def signup(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
-
+            return HttpResponseRedirect('/profile/')
         else:
             messages.error(
                 request, "Unsuccessful registration. Invalid information.")

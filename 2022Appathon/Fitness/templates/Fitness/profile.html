@@ -9,21 +9,25 @@
  </h1>
  <hr class="mt-0 mb-4">
     <h1>{{user.username}}</h1>
-    <form method="POST" class="form-group">
+    <form method="POST" action = "#">
         {% csrf_token %}
         <br>
-        <h2>Name</h2>
+        <h2>Name:</h2>
         <div class="input-group mb-3">
-            <input type="text", value="{{user.Profile.fullname}}", class="form-control">
+            <input type="text", value="{{profile.fullname}}", name="fullname" class="form-control">
         </div>
-        <h2>Age</h2>
+        <h2>Age:</h2>
         <div class="input-group mb-3">
-            <input type="text", value="{{user.Profile.age}}", class="form-control">
+            <input type="text", value="{{profile.age}}", name="age" class="form-control">
         </div>
-        <h2>Height</h2>
+        <h2>Height:</h2>
         <div class="input-group mb-3">
-            <input type="text", value="{{user.Profile.height}}", class="form-control">
+            <input type="text", value="{{profile.height}}", name="height" class="form-control">
         </div>
-        <p class="btnwrap"><button type="submit" class="btn btn-success">Save</button></p>
+        <h2>Weight:</h2>
+        <div class="input-group mb-3">
+            <input type="text", value="{{profile.weight}}", name="weight" class="form-control">
+        </div>
+        <p class="btnwrap"><button type="submit", name="save", value="save" class="btn btn-success">Save</button></p>
     </form>
 {% endblock %}

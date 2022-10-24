@@ -6,9 +6,9 @@ import datetime
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=50, default="")
-    age = models.IntegerField()
-    height = models.IntegerField()
-    weight = models.IntegerField()
+    age = models.IntegerField(null=True)
+    height = models.IntegerField(null=True)
+    weight = models.IntegerField(null=True)
 
 
 class Workout(models.Model):

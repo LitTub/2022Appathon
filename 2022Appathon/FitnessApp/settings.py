@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'Fitness',
     'signup.apps.SignupConfig',
     'crispy_forms',
-
 ]
 
 MIDDLEWARE = [
