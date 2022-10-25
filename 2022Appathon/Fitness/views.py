@@ -11,8 +11,9 @@ def home(request):
     username = None
     if request.user.is_authenticated:
         username = request.user.username
+        workouts = Workout.objects.all()
 
-    return render(request, "Fitness/home.html", {"username": username})
+    return render(request, "Fitness/home.html", {"username": username, "workouts": workouts})
 
 
 def profile(request):
@@ -28,8 +29,6 @@ def profile(request):
         profile = Profile.objects.get(user=user)
         if request.method == "POST":
             form = UpdateProfile(request.POST)
-            print(request.POST)
-            print(form.is_valid())
             if form.is_valid():
                 profile.fullname = form.cleaned_data["fullname"]
                 profile.age = form.cleaned_data["age"]
@@ -37,7 +36,6 @@ def profile(request):
                 profile.weight = form.cleaned_data["weight"]
                 profile.save()
 
-    
     return render(request, "Fitness/profile.html", {"user": user, "profile": profile})
 
 
@@ -46,11 +44,15 @@ def calculators(request):
         form = RunningCalculator(request.POST)
 
         if form.is_valid():
-            values = form.cleaned_data
+            user = request.user
+            profile = Profile.objects.get(user=user)
             workout = Workout()
-
+            workout.user = user
+            workout.fullname = profile.fullname
+            workout.duration = form.cleaned_data["duration"]
+            #workout.calories = form.cleaned_data["calories"]
             workout.save()
 
     else:
         form = RunningCalculator(request.POST)
-    return render(request, "Fitness/calculators.html", {"form": form})
+    return render(request, "Fitness/running.html", {"form": form})

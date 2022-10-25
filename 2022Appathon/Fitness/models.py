@@ -20,9 +20,10 @@ class Workout(models.Model):
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    fullname = models.CharField(default="", max_length=200)
     type = models.CharField(max_length=1, choices=WORKOUT_TYPE, blank=True)
     duration = models.IntegerField()
-    calories = models.IntegerField()
+    calories = models.IntegerField(default=0)
     date = models.DateField(default=datetime.datetime.now().date())
 
     class Meta:

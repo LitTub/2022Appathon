@@ -9,9 +9,9 @@ class CreateClassroom(forms.Form):
 
 
 class RunningCalculator(forms.Form):
-    Weight = forms.CharField(label="Weight", max_length=100)
-    Distance = forms.CharField(label="Distance", max_length=100)
-    Duration = forms.CharField(label="Duration", max_length=100)
+    distance = forms.CharField(label="Distance", max_length=100)
+    duration = forms.CharField(label="Duration", max_length=100)
+
 
 class UpdateProfile(forms.Form):
     fullname = forms.CharField(max_length="100", required=False)
