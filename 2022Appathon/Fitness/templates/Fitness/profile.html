@@ -1,8 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        .alertmessage{
+            color:red;
+        }
+        </style>
+
 {% extends "Fitness/base.html" %}
 
 {% block title %} Profile {% endblock %}
 
-
+</head>
+<body>
 {% block content %} 
 <h1 class="mt-2"> 
     Fitness App
@@ -30,4 +40,8 @@
         </div>
         <p class="btnwrap"><button type="submit", name="save", value="save" class="btn btn-success">Save</button></p>
     </form>
+    {% if complete == False %}<div class = "alertmessage" ><p>Please fill in all of the fields to continue.</p></div> {% endif %}
+
 {% endblock %}
+</body>
+</html>

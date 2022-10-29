@@ -14,14 +14,15 @@ class Profile(models.Model):
 class Workout(models.Model):
 
     WORKOUT_TYPE = (
-        ('r', 'Running'),
-        ('b', 'Biking'),
-        ('s', 'Swimming'),
+        ('Running', 'Running'),
+        ('Biking', 'Biking'),
+        ('Swimming', 'Swimming'),
     )
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     fullname = models.CharField(default="", max_length=200)
-    type = models.CharField(max_length=1, choices=WORKOUT_TYPE, blank=True)
+    type = models.CharField(max_length=10, choices=WORKOUT_TYPE, blank=True)
+    distance = models.IntegerField(default=0)
     duration = models.IntegerField()
     calories = models.IntegerField(default=0)
     date = models.DateField(default=datetime.datetime.now().date())

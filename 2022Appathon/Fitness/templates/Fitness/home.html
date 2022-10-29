@@ -1,4 +1,6 @@
 {% extends "Fitness/base.html" %}
+{% load custom_tags %}
+
 
 {% block title %}
 Home
@@ -11,7 +13,24 @@ Home
  </h1>
  <hr class="mt-0 mb-4">
 <h1>Welcome, {{username}}</h1>
-{{workouts}}
+<hr class="mt-0 mb-4">
+{% for field in fields %}
+
+ <h1>Workout #{{field}}</h1>
+    
+    {% for i in fields|get_value:field %}
+    <p class="fields">{{i|capitalize}}:</p> {{fields|get_value:field|get_value:i}} 
+   
+</br>
+
+    {% endfor %}
+</br>
+<form>
+<button type="submit"  name={{field}} class="delete" action = "#"></button>
+</form>
+<hr class="mt-0 mb-4">
+{% endfor %}
+
 
 
 {% endblock %}

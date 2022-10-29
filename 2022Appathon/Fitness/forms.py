@@ -13,6 +13,19 @@ class RunningCalculator(forms.Form):
     duration = forms.CharField(label="Duration", max_length=100)
 
 
+INTENSITY = [
+    ("low", "Low"),
+    ("moderate", "Moderate"),
+    ("high", "High"),
+]
+
+
+class SwimmingCalculator(forms.Form):
+    duration = forms.CharField(label="Duration", max_length=100)
+    intensity = forms.CharField(
+        label="Intensity", widget=forms.Select(choices=INTENSITY))
+
+
 class UpdateProfile(forms.Form):
     fullname = forms.CharField(max_length="100", required=False)
     age = forms.IntegerField(required=False)
