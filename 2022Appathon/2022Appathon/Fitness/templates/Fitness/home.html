@@ -1,0 +1,40 @@
+{% extends "Fitness/base.html" %}
+{% load custom_tags %}
+
+
+{% block title %}
+Home
+{% endblock %}
+
+
+{% block content %}
+<h1 class="mt-2"> 
+    Fitness App
+ </h1>
+ <hr class="mt-0 mb-4">
+<h2 style="font-size:40px">Welcome, {{username}}</h2>
+<br>
+<h1>Past Workouts</h1>
+<hr class="mt-0 mb-4">
+{% for field in fields %}
+
+ <h3>{{fields|get_value:field|get_value:'date'}}</h3>
+    
+    {% for i in fields|get_value:field %}
+        {% if i != "date" %}
+            <p class="fields">{{i|capitalize}}:</p> {{fields|get_value:field|get_value:i}} 
+        {% endif %}
+</br>
+
+    {% endfor %}
+</br>
+<form method="POST">
+    {% csrf_token %}
+<button type="submit"  name={{field}} class="delete" id="LogOutButton"></button>
+</form>
+<hr class="mt-0 mb-4">
+{% endfor %}
+
+
+
+{% endblock %}

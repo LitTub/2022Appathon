@@ -1,0 +1,24 @@
+{% extends "Fitness/base.html" %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 class="mt-2"> 
+    Fitness App
+ </h1>
+ <hr class="mt-0 mb-4">
+
+<form method="post" class="form-group">
+    {% csrf_token %}
+    {{login_form|crispy}}
+    <br>
+    <button type="submit" class="btn btn-success">Login</button>
+</form>
+<br>
+<p>Don't have an account? Create one <a href="/signup">here</a></p>
+
+{% endblock %}
